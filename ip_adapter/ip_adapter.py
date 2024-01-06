@@ -218,6 +218,11 @@ class IPAdapter:
 
         return images
 
+    def to(self, device):
+        self.image_encoder = self.image_encoder.to(device)
+        self.pipe = self.pipe.to(device)
+        self.device = device
+
 
 class IPAdapterPlus(IPAdapter):
     """IP-Adapter with fine-grained features"""
